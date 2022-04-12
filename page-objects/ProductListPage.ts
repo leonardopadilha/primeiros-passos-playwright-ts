@@ -6,6 +6,7 @@ export class ProductListPage {
     readonly btnAddProduct: Locator
     readonly containerProducts: Locator
     readonly msgError: Locator
+    readonly trash: Locator
 
     constructor(page: Page) {
         this.page = page
@@ -13,6 +14,7 @@ export class ProductListPage {
         this.btnAddProduct = page.locator('text=Adicionar produto')
         this.containerProducts = page.locator('.collection li:last-child')
         this.msgError = page.locator('[class*="toast"]')
+        this.trash = page.locator('.collection li:last-child i:last-child')
     }
 
     async assertProductList(phrase: string) {
@@ -28,7 +30,7 @@ export class ProductListPage {
         await expect(this.containerProducts).toContainText(nameProduct)
     }
 
-    async validNotInsertProduct(nameProduct: string) {
+    async validNonexistentProduct(nameProduct: string) {
         await expect(this.containerProducts).not.toContainText(nameProduct)
     }
 
@@ -36,4 +38,15 @@ export class ProductListPage {
         await expect(this.msgError).toBeVisible()
         await expect(this.msgError).toContainText(phrase)
     }
+
+    async clickTrash(nameProduct: string) {
+        this.validInsertProduct(nameProduct)
+        await this.trash.click()
+    }
+
+    async assertRemovedProduct(phrase: string) {
+        await expect(this.msgError).toContainText(phrase)
+    }
+
+
 }
