@@ -16,7 +16,7 @@ export class LoginPage {
     }
 
     async visit() {
-        await this.page.goto('http://165.227.93.41/lojinha-web/')
+        await this.page.goto('http://165.227.93.41/lojinha-web/v2/')
     }
 
     async login(user: string, password: string) {

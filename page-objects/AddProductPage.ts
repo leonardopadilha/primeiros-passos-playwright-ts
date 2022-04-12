@@ -8,6 +8,7 @@ export class AddProductPage {
     readonly btnSave: Locator
     //readonly btnProductList: Locator
     readonly msgSucess: Locator
+    readonly msgError: Locator
 
     constructor(page: Page) {
         this.page = page
@@ -31,6 +32,6 @@ export class AddProductPage {
     }
 
     async viewPageProductList() {
-        await this.page.goto('http://165.227.93.41/lojinha-web/produto')
+        await this.page.goto('http://165.227.93.41/lojinha-web/v2/produto')
     }
 }

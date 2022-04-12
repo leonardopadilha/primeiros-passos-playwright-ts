@@ -2,7 +2,7 @@ import {test} from "@playwright/test"
 import {LoginPage} from "../page-objects/LoginPage"
 import {ProductListPage} from "../page-objects/ProductListPage"
 
-test.describe.only('Realize Login', () => {
+test.describe('Realize Login', () => {
     let loginPage: LoginPage
     let productListPage: ProductListPage
 
