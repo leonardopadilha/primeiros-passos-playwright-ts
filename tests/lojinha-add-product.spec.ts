@@ -35,7 +35,7 @@ test.describe.parallel('Add Product', () => {
 
         await addProductPage.createProduct(product, '100.000,00', 'Verde')
 
-        await productListPage.viewListProduct()
+        await productListPage.assertProductList('Lista de Produtos')
         await productListPage.assertMsgError('O valor do produto deve estar entre R$ 0,01 e R$ 7.000,00')
         await productListPage.validNotInsertProduct(product)
     })
