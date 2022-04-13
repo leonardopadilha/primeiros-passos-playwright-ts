@@ -3,7 +3,7 @@ import {LoginPage} from "../page-objects/LoginPage"
 import {ProductListPage} from "../page-objects/ProductListPage"
 import {AddProductPage} from "../page-objects/AddProductPage"
 
-test.describe('Include and exclude products', () => {
+test.describe('Exclude products', () => {
         let loginPage: LoginPage
         let productListPage: ProductListPage
         let addProductPage: AddProductPage
