@@ -7,6 +7,7 @@ export class ProductListPage {
     readonly containerProducts: Locator
     readonly msgError: Locator
     readonly trash: Locator
+    readonly productLink: Locator
 
     constructor(page: Page) {
         this.page = page
@@ -15,6 +16,7 @@ export class ProductListPage {
         this.containerProducts = page.locator('.collection li:last-child')
         this.msgError = page.locator('[class*="toast"]')
         this.trash = page.locator('.collection li:last-child i:last-child')
+        this.productLink = page.locator('.collection li:last-child span')
     }
 
     async assertProductList(phrase: string) {
@@ -42,6 +44,11 @@ export class ProductListPage {
     async clickTrash(nameProduct: string) {
         this.validInsertProduct(nameProduct)
         await this.trash.click()
+    }
+
+    async clickChangeProduct(nameProduct: string) {
+        this.validInsertProduct(nameProduct)
+        await this.productLink.click()
     }
 
     async assertRemovedProduct(phrase: string) {
